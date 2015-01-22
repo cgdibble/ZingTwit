@@ -5,16 +5,9 @@ html, body {
 
 /*    HEADER     */
 .header {
-  /*border: 1px solid black;*/
-  /*height: 100px;*/
   margin: 0;
   padding: 20px;
   background-color: #44E8E4;
   font-size: 30px;
 }
-
-.title {
-  /*margin-top: 20px;*/
-}
-
 /*    CONTENT    */
