@@ -2,6 +2,17 @@ html, body {
   padding: 0;
   margin: 0;
 }
+
+/*    HEADER     */
 .header {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
+  height: 100px;
+  margin: 0;
+  background-color: #44E8E4;
 }
+
+.title {
+  margin-top:0;
+}
+
+/*    CONTENT    */
