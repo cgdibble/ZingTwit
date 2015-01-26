@@ -2,26 +2,33 @@
 <html>
   <head>
     <title>ZingTwit</title>
-    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
     <link rel="stylesheet" type="text/css" href="../libs/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
   </head>
 
   <body>
-    <header class="header">
-      <div class="title">ZingTwit</div>
+    <header>
     </header>
+    <div class="header">
+      <a href="/" class="title navbar-brand col-xs-12">ZingTwit</a>
+    </div>
     <div class="container text-center">
       <div class="row">
-        <div class="col-sm-4 green col-sm-offset-4">
+        <div class="col-sm-12 well">
           <br>
           <p class="test">ZingTwit is a way to visualize trending topics on Twitter...or at least it will be!</p>
           <form>
             <input type="text" name="hashtag" placeholder="Hashtags to search">
+            <br>
+            <br>
+            <input type="submit" class="btn btn-primary" value-"Search Hashtag!">
           </form>
-          <button>Search Hashtag!</button>
+        </div>
+        <div class="well">
+          <!-- Put graphs here -->
+          <p>This is where the graphs will go</p>
         </div>
       </div>
-      <!-- put div to store each graph type? or just one to be centered? -->
     </div>
 
     <script type="text/javascript" src="../libs/jquery/dist/jquery.min.js"></script>
