@@ -11,3 +11,12 @@ html, body {
   font-size: 30px;
 }
 /*    CONTENT    */
+.red {
+  background-color: red;
+}
+.green {
+  background-color: green;
+}
+.blue {
+  background-color: blue;
+}
