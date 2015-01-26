@@ -5,9 +5,9 @@ html, body {
 
 /*    HEADER     */
 .header {
-  margin: 0;
-  padding: 20px;
-  background-color: #44E8E4;
+  height: 70px;
+}
+.title {
   font-size: 30px;
 }
 /*    CONTENT    */
