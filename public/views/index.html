@@ -20,7 +20,7 @@
           <p class="test">ZingTwit is a way to visualize trending topics on Twitter...or at least it will be!</p>
           <form name="queryForm" ng-submit="queryForm.$valid && chartCtrl.queryTwitter()" novalidate>
             <input class="search-field" type="text" name="users" placeholder="Enter a Twitter User" ng-model="chartCtrl.userQuery" required>
-            <br>{{queryForm.$valid}}                         <!-- DEVELOPMENT code -->
+            <br>{{"Valid text field???: " + queryForm.$valid}}                         <!-- DEVELOPMENT code -->
 
             <br>
             {{"UserQuery: " + chartCtrl.userQuery}}          <!-- DEVELOPMENT code -->
@@ -30,7 +30,6 @@
           </form>
         </div>
         <div id="barChartDiv" class="well">
-          {{chartCtrl.chart.series}}                          <!-- DEVELOPMENT code -->
           <!-- Put graphs here -->
           {{chartCtrl.renderChart(chartCtrl.barChart, "barChartDiv")}}
           <br><br>
