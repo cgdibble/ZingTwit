@@ -16,7 +16,7 @@
         id: chart.divId,
         data: chart.data,
         height: 400,
-        width: "100%"
+        width: "95%"
       });
     },
 
