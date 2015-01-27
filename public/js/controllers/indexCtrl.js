@@ -11,7 +11,6 @@
     // console.log(this.userQuery);
 
     this.renderChart = function(chart) {
-      console.log(chart);
       zingchart.render({
         id: chart.divId,
         data: chart.data,
@@ -37,8 +36,8 @@
     }
   }]);
 
-//////////////////////////////////
-///       Chart Objects     //////
+/////////////////////////////////////
+///////     Chart Objects     ///////
 
   function Chart(divId, data) {
     this.divId = divId;
@@ -71,9 +70,8 @@
   var barChart = new Chart('barChartDiv', barData);
   var pieChart = new Chart('pieChartDiv', pieData);
 
-///////////////////////
-      // Should the graph portion be a directive??
-///////////////////////
+
+//////////////////////////////////////////////
 
 //    Since twitter doesn't really offer the trending data (have to pay for it)::::
 //        search a hash tag and chart some other piece of data??
@@ -88,9 +86,6 @@
 
               // chart the number of re-tweets each has
 
-//////////     Now, should this do this for the 1st result, and then have a user search for multiple Users on Twitter?       //////////
-
-///////////////////////
-///////////////////////
+//////////     Now, should this do this for the 1st result, and then have a user search for multiple Users on Twitter?
 
 })();
