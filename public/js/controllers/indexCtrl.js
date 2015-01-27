@@ -2,7 +2,7 @@
 
   var dash = angular.module("zingTwit", []);
 
-  dash.controller('ChartController', function() {
+  dash.controller('ChartController', ['$scope', '$http', function($scope, $http) {
     this.chart = basicChart;
     this.twitterQuerry = []; // have n array of data and add it to the chart as necessary
     //on submission of form, push new chartData to this array
@@ -22,10 +22,17 @@
       this.twitterQuerry.push(this.userQuery)
       this.userQuery = ""; //reset text field.
 
+      $http.get('/search')
+        .success(function(data) {
+          console.log("Request to /tags worked: " + data);
+        })
+        .error(function(err) {
+          console.log("Request to /tags did no work: " + err);
+        })
       // call function/route to query twitter and give back parsed response/ data needed to graph
     }
 
-  });
+  }]);
 
   var basicChart = {
     "type":"bar",
@@ -39,6 +46,7 @@
     ]
   }
 ///////////////////////
+      // Should the graph portion be a directive??
 ///////////////////////
 
 //    Since twitter doesn't really offer the trending data (have to pay for it)::::

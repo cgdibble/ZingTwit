@@ -1,16 +1,12 @@
 // grab our USER model
-var Tag = require('./models/tag');
+var User = require('./models/user');
 
 module.exports = function(app) {
   //This is where the server routes go
   //can be anything from API calls, to authentication routes
 
-  app.get('/tags', function(req, res) {
-    Tag.find( function(err, tags) {
-      // if (err) {
-      //   res.send(err);
-      // }
-      // res.json(tags);  //return all of the users data in JSON
+  app.get('/search', function(req, res) {
+    User.find( function(err, tags) {
       err ? res.send(err) : res.json(tags); // refactoring of above
     });
   });
