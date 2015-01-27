@@ -20,14 +20,11 @@
 
     this.queryTwitter = function() {
       this.twitterQuerry.push(this.userQuery)
-      // this.userQuery = ""; //reset text field.
       this.postDB();
-
-      // call function/route to query twitter and give back parsed response/ data needed to graph
+      this.userQuery = ""; //reset text field.
     },
 
     this.postDB = function() {
-      console.log(this.userQuery);
       $http.put('/search', { q : this.userQuery })
         .success(function(data) {
           console.log("Request to /test worked: " + data);
@@ -35,8 +32,6 @@
         .error(function(err) {
           console.log("Request to /test did no work: " + err);
         });
-        this.userQuery = "";
-        // console.log("INSIDE postDB()");
     }
   }]);
 
