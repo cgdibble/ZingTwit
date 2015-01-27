@@ -19,10 +19,11 @@ module.exports = function(app) {
     //    the twitter db for users
     // take the data Twitter returns, parse out what is needed (followers, followed, tweets, retweets)
         // send back as JSON to Angular.
-    console.log(req.body.q);
     var q = "THIS IS FROM THE SERVER /search";
     res.json(q);
   });
+
+
 
   // app.get('*', function(req, res) {
   //   // send the index html because  this is a single pageapp
