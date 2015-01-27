@@ -3,16 +3,17 @@
   var dash = angular.module("zingTwit", []);
 
   dash.controller('ChartController', ['$scope', '$http', function($scope, $http) {
-    this.chart = basicChart;
+    this.barChart = barChart;
+    this.pieChart = pieChart;
     this.twitterQuerry = []; // have n array of data and add it to the chart as necessary
     //on submission of form, push new chartData to this array
     this.userQuery = ""; //each user/search will be assigned to this string, have to break it up
     // console.log(this.userQuery);
 
-    this.renderChart = function() {
+    this.renderChart = function(chart) {
       zingchart.render({
         id:'myChartDiv',
-        data: basicChart,
+        data: this.pieChart,
         height: 400,
         width: "100%"
       });
@@ -35,8 +36,20 @@
     }
   }]);
 
-  var basicChart = {
+  var barChart = {
     "type":"bar",
+    "title": {
+      "text":"Follower Comparisons"
+    },
+    "series": [
+      {"values": [2700] },
+      {"values": [470] },
+      {"values": [12322] }
+    ]
+  }
+
+  var pieChart = {
+    "type":"pie",
     "title": {
       "text":"Follower Comparisons"
     },
