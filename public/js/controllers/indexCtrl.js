@@ -4,8 +4,9 @@
 
   dash.controller('ChartController', function() {
     this.chart = basicChart;
-    this.chartData = []; // have n array of data and add it to the chart as necessary
+    this.twitterQuerry = []; // have n array of data and add it to the chart as necessary
     //on submission of form, push new chartData to this array
+    this.userQuery = ""; //each user/search will be assigned to this string, have to break it up
     console.log(this.chartData);
 
     this.renderChart = function() {
@@ -17,8 +18,8 @@
       });
     },
 
-    this.queryTwitter = function(users) {
-      //
+    this.queryTwitter = function() {
+      this.chartData.push(this.userQuery)
     }
 
   });

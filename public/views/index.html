@@ -18,10 +18,10 @@
         <div class="col-sm-12 well">
           <br>
           <p class="test">ZingTwit is a way to visualize trending topics on Twitter...or at least it will be!</p>
-          <form ng-submit="chartCtrl.queryTwitter(users)">
-            <input type="text" name="users" placeholder="Hashtags to search" ng-model="chartCtrl.chartData">
+          <form ng-submit="chartCtrl.queryTwitter()">
+            <input type="text" name="users" placeholder="Hashtags to search" ng-model="chartCtrl.userQuery">
             <br>
-            {{"ChartData: " + chartCtrl.chartData}}
+            {{"UserQuery: " + chartCtrl.userQuery}}
             <br>
             <input type="submit" class="btn btn-primary" value-"Search Hashtag!">
           </form>
