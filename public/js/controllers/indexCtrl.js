@@ -28,12 +28,12 @@
 
     this.postDB = function() {
       console.log(this.userQuery);
-      $http.put('/')// { q : this.userQuery }
+      $http.get('/test')// { q : this.userQuery }
         .success(function(data) {
-          console.log("Request to /tags worked: " + data);
+          console.log("Request to /test worked: " + data);
         })
         .error(function(err) {
-          console.log("Request to /tags did no work: " + err);
+          console.log("Request to /test did no work: " + err);
         });
         this.userQuery = "";
         // console.log("INSIDE postDB()");

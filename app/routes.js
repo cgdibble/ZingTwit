@@ -6,17 +6,17 @@ module.exports = function(app) {
   //can be anything from API calls, to authentication routes
 
   app.get('/', function(req, res) {
-    console.log("In /query request");
+    // console.log("In / request");
     res.sendfile("./public/views/index.html")
+    // Query.find( function(err, query) {
+    //   console.log(query);
+    //   err ? res.send(err) : res.json(query); // refactoring of above
+    // });
   });
 
-  app.put('/', function(req, res) {
-    console.log("POST request data: " + res);
-    Query.find( function(err, query) {
-      console.log(query);
-      err ? res.send(err) : res.json(query); // refactoring of above
-    });
-    console.log(res.body);
+  app.get('/test', function(req, res) {
+    var q = "This is data"
+    res.json(q);
   });
 
   // app.get('*', function(req, res) {
