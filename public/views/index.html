@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="zingtwit">
+<html ng-app="zingTwit">
   <head>
     <title>ZingTwit</title>
     <link rel="stylesheet" type="text/css" href="../libs/bootstrap/dist/css/bootstrap.css">
@@ -7,7 +7,7 @@
 
   </head>
 
-  <body>
+  <body ng-controller="DashController as dashCtrl">
     <header>
     </header>
     <div class="header">
@@ -34,6 +34,8 @@
 
     <script type="text/javascript" src="../libs/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="../libs/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../libs/angular/angular.js"></script>
+    <script type="text/javascript" src="../libs/angular-resource/angular-resource.js"></script>
     <script type="text/javascript" src="../libs/zingchart/zingchart.min.js"></script>
     <script type="text/javascript" src="../js/controllers/indexCtrl.js"></script>
 
