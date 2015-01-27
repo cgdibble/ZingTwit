@@ -14,9 +14,12 @@ module.exports = function(app) {
     // });
   });
 
-  app.get('/test', function(req, res) {
-    var q = "This is data"
-    res.json(q);
+  app.put('/search', function(req, res) {
+    // This route should take the data passed to it, parse it out properly such that it can then query
+    //    the twitter db for users
+    // take the data Twitter returns, parse out what is needed (followers, followed, tweets, retweets)
+        // send back as JSON to Angular.
+    console.log(req.body.q);
   });
 
   // app.get('*', function(req, res) {
