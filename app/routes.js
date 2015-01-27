@@ -1,5 +1,5 @@
 // grab our USER model
-var User = require('./models/tag');
+var Tag = require('./models/tag');
 
 module.exports = function(app) {
   //This is where the server routes go
