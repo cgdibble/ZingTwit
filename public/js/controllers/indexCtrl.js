@@ -7,7 +7,7 @@
     this.twitterQuerry = []; // have n array of data and add it to the chart as necessary
     //on submission of form, push new chartData to this array
     this.userQuery = ""; //each user/search will be assigned to this string, have to break it up
-    console.log(this.userQuery);
+    // console.log(this.userQuery);
 
     this.renderChart = function() {
       zingchart.render({
@@ -20,18 +20,24 @@
 
     this.queryTwitter = function() {
       this.twitterQuerry.push(this.userQuery)
-      this.userQuery = ""; //reset text field.
+      // this.userQuery = ""; //reset text field.
+      this.postDB();
 
-      $http.get('/')
+      // call function/route to query twitter and give back parsed response/ data needed to graph
+    },
+
+    this.postDB = function() {
+      console.log(this.userQuery);
+      $http.put('/')// { q : this.userQuery }
         .success(function(data) {
           console.log("Request to /tags worked: " + data);
         })
         .error(function(err) {
           console.log("Request to /tags did no work: " + err);
-        })
-      // call function/route to query twitter and give back parsed response/ data needed to graph
+        });
+        this.userQuery = "";
+        // console.log("INSIDE postDB()");
     }
-
   }]);
 
   var basicChart = {
