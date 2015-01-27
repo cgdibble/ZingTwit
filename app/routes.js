@@ -3,7 +3,7 @@ var Query = require('./models/query');
 var Twitter = require('twitter');
 var client = new Twitter({
   consumer_key : process.env.CONSUMER_KEY,
-  consumer_secret : '',
+  consumer_secret : process.env.CONSUMER_SECRET,
   access_token_key : '',
   access_token_Secret : ''
 });   // Need to add these values from twitter account but hidden in a DOTENV
@@ -23,6 +23,7 @@ module.exports = function(app) {
 
   app.put('/search', function(req, res) {
     console.log(process.env.CONSUMER_KEY);
+    console.log(process.env.CONSUMER_SECRET);
     // This route should take the data passed to it, parse it out properly such that it can then query
     //    the twitter db for users
     // take the data Twitter returns, parse out what is needed (followers, followed, tweets, retweets)
