@@ -2,7 +2,30 @@
 
 var dash = angular.module("zingTwit", []);
 
+dash.controller('DashController', function() {
+  this.chart = basicChart;
 
+  this.renderChart = function() {
+    zingchart.render({
+      id:'myChartDiv',
+      data: basicChart,
+      height: 400,
+      width: "100%"
+    });
+  }
+});
+
+var basicChart = {
+  "type":"bar",
+  "title": {
+    "text":"Hashtag Trends"
+  },
+  "series": [
+    {"values": [6,3,4,5,6,9,14] },
+    {"values": [2,3,8,3,5,8,19] },
+    {"values": [1,5,2,7,9,11,22] }
+  ]
+}
 
 
 // dash.config(['$routeProvider', function($routeProvider) {
