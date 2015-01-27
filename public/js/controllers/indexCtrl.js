@@ -10,10 +10,10 @@
     this.userQuery = ""; //each user/search will be assigned to this string, have to break it up
     // console.log(this.userQuery);
 
-    this.renderChart = function(chart) {
+    this.renderChart = function(chart, div) {
       zingchart.render({
-        id:'myChartDiv',
-        data: this.pieChart,
+        id: div,
+        data: chart,
         height: 400,
         width: "100%"
       });
