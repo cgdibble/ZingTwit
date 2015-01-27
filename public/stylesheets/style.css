@@ -11,3 +11,6 @@ html, body {
   font-size: 30px;
 }
 /*    CONTENT    */
+.search-field {
+  width: 200px;
+}
