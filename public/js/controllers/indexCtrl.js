@@ -2,7 +2,7 @@
 
 var dash = angular.module("zingTwit", []);
 
-dash.controller('DashController', function() {
+dash.controller('ChartController', function() {
   this.chart = basicChart;
 
   this.renderChart = function() {
@@ -14,7 +14,14 @@ dash.controller('DashController', function() {
     });
   }
 });
+// need to create an array of chart data points from the twitter data
 
+// should each chart be an instance of a Chart????
+    // with attributes like: data = allthestuff like below
+      //and rendered?
+
+
+// should it be an array of graph types and each is displayed with the same data sequentially?
 var basicChart = {
   "type":"bar",
   "title": {
