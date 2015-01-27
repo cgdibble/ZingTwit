@@ -1,48 +1,61 @@
 (function() {
 
-var dash = angular.module("zingTwit", []);
+  var dash = angular.module("zingTwit", []);
 
-dash.controller('ChartController', function() {
-  this.chart = basicChart;
+  dash.controller('ChartController', function() {
+    this.chart = basicChart;
+    this.chartData = []; // have n array of data and add it to the chart as necessary
+    //on submission of form, push new chartData to this array
+    console.log(this.chartData);
 
-  this.renderChart = function() {
-    zingchart.render({
-      id:'myChartDiv',
-      data: basicChart,
-      height: 400,
-      width: "100%"
-    });
+    this.renderChart = function() {
+      zingchart.render({
+        id:'myChartDiv',
+        data: basicChart,
+        height: 400,
+        width: "100%"
+      });
+    },
+
+    this.queryTwitter = function(users) {
+      //
+    }
+
+  });
+
+  var basicChart = {
+    "type":"bar",
+    "title": {
+      "text":"Follower Comparisons"
+    },
+    "series": [
+      {"values": [2700] },
+      {"values": [470] },
+      {"values": [12322] }
+    ]
   }
-});
-// need to create an array of chart data points from the twitter data
+///////////////////////
+///////////////////////
 
-// should each chart be an instance of a Chart????
-    // with attributes like: data = allthestuff like below
-      //and rendered?
+//    Since twitter doesn't really offer the trending data (have to pay for it)::::
+//        search a hash tag and chart some other piece of data??
+//
 
+  // Search a Twitter User:::
+    // Have options to view each with different graphs
+    /////  For each possible user returned:
+              // chart the amount of followers each has
+
+              // chart the amount of tweets each has done (statuses)
+
+              // chart the number of re-tweets each has
+
+//////////     Now, should this do this for the 1st result, and then have a user search for multiple Users on Twitter?       //////////
+
+///////////////////////
+///////////////////////
 
 // should it be an array of graph types and each is displayed with the same data sequentially?
-var basicChart = {
-  "type":"bar",
-  "title": {
-    "text":"Hashtag Trends"
-  },
-  "series": [
-    {"values": [6,3,4,5,6,9,14] },
-    {"values": [2,3,8,3,5,8,19] },
-    {"values": [1,5,2,7,9,11,22] }
-  ]
-}
-
-
-// dash.config(['$routeProvider', function($routeProvider) {
-//   $routeProvider.when("/tags", {
-//     controller:'DashController'//,
-//     // templateUrl: ''
-//   }).otherwise({
-//     redirectTo: '/tags'
-//   });
-// }])
 
 // dash.controller('DashController', ['$scope', '$http', '$routeParams', 'ngDialog',
 //  function($scope, $http, $routeParams, ngDialog){

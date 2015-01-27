@@ -14,18 +14,19 @@
       <a href="/" class="title navbar-brand col-xs-12">ZingTwit</a>
     </div>
     <div class="container text-center">
-      <div class="row">
+      <div class="row" ng-controller="ChartController as chartCtrl">
         <div class="col-sm-12 well">
           <br>
           <p class="test">ZingTwit is a way to visualize trending topics on Twitter...or at least it will be!</p>
-          <form>
-            <input type="text" name="hashtag" placeholder="Hashtags to search" ng-model="chart.series">
+          <form ng-submit="chartCtrl.queryTwitter(users)">
+            <input type="text" name="users" placeholder="Hashtags to search" ng-model="chartCtrl.chartData">
             <br>
+            {{"ChartData: " + chartCtrl.chartData}}
             <br>
             <input type="submit" class="btn btn-primary" value-"Search Hashtag!">
           </form>
         </div>
-        <div id="myChartDiv" class="well" ng-controller="ChartController as chartCtrl">
+        <div id="myChartDiv" class="well">
           {{chartCtrl.chart.series}}
 
           <!-- Put graphs here -->
