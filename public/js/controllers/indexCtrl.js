@@ -22,7 +22,7 @@
       this.twitterQuerry.push(this.userQuery)
       this.userQuery = ""; //reset text field.
 
-      $http.get('/search')
+      $http.get('/')
         .success(function(data) {
           console.log("Request to /tags worked: " + data);
         })
