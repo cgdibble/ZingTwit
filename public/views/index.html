@@ -19,16 +19,17 @@
           <br>
           <p class="test">ZingTwit is a way to visualize trending topics on Twitter...or at least it will be!</p>
           <form>
-            <input type="text" name="hashtag" placeholder="Hashtags to search">
+            <input type="text" name="hashtag" placeholder="Hashtags to search" ng-model="chart.series">
             <br>
             <br>
             <input type="submit" class="btn btn-primary" value-"Search Hashtag!">
           </form>
         </div>
         <div id="myChartDiv" class="well" ng-controller="ChartController as chartCtrl">
+          {{chartCtrl.chart.series}}
+
           <!-- Put graphs here -->
           {{chartCtrl.renderChart()}}
-          <p>This is where the graphs will go</p>
         </div>
       </div>
     </div>
