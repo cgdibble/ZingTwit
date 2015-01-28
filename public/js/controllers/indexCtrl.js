@@ -13,8 +13,8 @@
     this.twitterQueries = [];
     this.userQuery; //each user/search will be assigned to this string, have to break it up
 
+
     this.renderChart = function(chart) {
-      console.log(chart);
       zingchart.render({
         id: chart.divId,
         data: chart.data,
@@ -32,18 +32,17 @@
       var dashScope = this
       $http.put('/search', { query : userQuery })
         .success(function(data) {
-          console.log("Request to /search worked: " + data.screen_name);
           dashScope.twitterQueries.push(data)
+          console.log("Successful Query::DashController::postDb()");
         })
         .error(function(err) {
           console.log("Request to /search did no work: " + err);
         });
+    },
+    this.clearData = function() {
+      console.log("CLEARING DATA")
+      this.twitterQueries = [];
     }
-        ////////      WHAT IF     :::::::::::
-
-              // ng-repeat went through each query in the twitterQueries array(((this happens for each submission of the form)))
-                // for every query, it hit Node, got the twitter data and graphed it.
-                    //then the data does not need to be saved???
 
   }]); // END of Chart Controller
 
@@ -56,10 +55,11 @@
     this.isSelected = function(checkPanel) {
       return this.panel === checkPanel;
     }
-  })
+  }); //END of Tab Controller
 
 /////////////////////////////////////
 ///////     Chart Objects     ///////
+/////////////////////////////////////
 
   function Chart(data, divId) {
     this.data = data;
