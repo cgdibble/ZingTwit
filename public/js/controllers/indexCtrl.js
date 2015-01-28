@@ -18,7 +18,6 @@
     },
 
     this.queryTwitter = function() {
-      // this.twitterQueries.push(this.userQuery)
       this.postDB(this.userQuery);
       this.userQuery = ""; //reset text field.
     },
@@ -29,16 +28,11 @@
         .success(function(data) {
           console.log("Request to /search worked: " + data.screen_name);
           dashScope.twitterQueries.push(data)
-          console.log(dashScope.twitterQueries);
-          // this.parseData(data);
         })
         .error(function(err) {
           console.log("Request to /search did no work: " + err);
         });
     },
-
-    this.parseData = function(userData) {
-    }
         ////////      WHAT IF     :::::::::::
 
               // ng-repeat went through each query in the twitterQueries array(((this happens for each submission of the form)))
@@ -57,7 +51,7 @@
   var barData = {
     "type":"bar",
     "title": {
-      "text":"Follower Comparisons"
+      "text":"Follower Counts"
     },
     "series": [
       {"values": [2700] },
@@ -68,6 +62,29 @@
 
   var pieData = {
     "type":"pie",
+    "title": {
+      "text":"Friend Counts"
+    },
+    "series": [
+      {"values": [2700] },
+      {"values": [470] },
+      {"values": [12322] }
+    ]
+  }
+
+  var gaugeData = {
+    "type":"gauge",
+    "title": {
+      "text":"Status Counts"
+    },
+    "series": [
+      {"values": [2700] },
+      {"values": [470] },
+      {"values": [12322] }
+    ]
+  }
+  var pianoData = {
+    "type":"piano",
     "title": {
       "text":"Follower Comparisons"
     },
