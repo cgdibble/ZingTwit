@@ -26,7 +26,7 @@
     },
 
     this.postDB = function() {
-      $http.put('/search', { query : "CGDIBBLE" })
+      $http.put('/search', { query : "cgdibble" })
         .success(function(data) {
           console.log("Request to /search worked: " + data.screen_name);
           // this.parseData(data);

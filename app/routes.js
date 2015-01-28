@@ -30,7 +30,7 @@ module.exports = function(app) {
                   // (followers, followed, tweets, retweets)
     var userData;
 
-    client.get('users/search', { q: 'cgdibble' }, function (err, data, response) {
+    client.get('users/search', { q: req.body.query }, function (err, data, response) {
       console.log(req.body.query);
       // console.log(data[0].screen_name);
       // console.log(data[0].followers_count);
