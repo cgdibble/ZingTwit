@@ -39,34 +39,38 @@
         <section>
           <ul class="nav nav-pills">
             <li>
-              <a href="">Followers(Bar)</a>
+              <a href ng-click="tab = 1">Followers(Bar)</a>
             </li>
             <li>
-              <a href="">Friends(Pie)</a>
+              <a href ng-click="tab = 2">Friends(Pie)</a>
             </li>
             <li>
-              <a href="">Tweets(Gauge)</a>
+              <a href ng-click="tab = 3">Tweets(Gauge)</a>
             </li>
             <li>
-              <a href="">Retweets(Piano)</a>
+              <a href ng-click="tab = 4">Retweets(Piano)</a>
             </li>
           </ul>
         </section>
 
-        <div id="chartDiv" class="well" ng-repeat="chart in chartCtrl.charts">
+        <!-- <div id="chartDiv" class="well" ng-repeat="chart in chartCtrl.charts">
           {{chart}}
           {{chartCtrl.renderChart(chart)}}
+        </div> -->
+
+
+        <div id="barChartDiv" class="well">
+          BAR CHART DIV
         </div>
-
-
-        <!-- <div id="barChartDiv" class="well"> -->
-          <!-- Put graphs here -->
-          <!-- {{chartCtrl.renderChart(chartCtrl.barChart)}} -->
-          <!-- <br><br> -->
-        <!-- </div> -->
-        <!-- <div id="pieChartDiv" class="well "> -->
-          <!-- {{chartCtrl.renderChart(chartCtrl.pieChart)}} -->
-        <!-- </div> -->
+        <div id="pieChartDiv" class="well ">
+          PIE CHART DIV
+        </div>
+        <div id="gaugeChart" class="well">
+          GAUGE CHART
+        </div>
+        <div id="pianoChart" class="well">
+          PIANO CHART
+        </div>
       </div>
     </div>
 

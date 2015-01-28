@@ -14,7 +14,6 @@
     this.userQuery; //each user/search will be assigned to this string, have to break it up
 
     this.renderChart = function(chart) {
-      console.log(chart.data);
       zingchart.render({
         id: 'chartDiv',
         data: chart.data,
@@ -50,8 +49,9 @@
 /////////////////////////////////////
 ///////     Chart Objects     ///////
 
-  function Chart(data) {
+  function Chart(data, divId) {
     this.data = data;
+    this.divId = divId;
   }
 
   var barData = {
@@ -101,8 +101,8 @@
     ]
   }
 
-  var barChart = new Chart(barData);
-  var pieChart = new Chart(pieData);
-  var gaugeChart = new Chart(gaugeData);
-  var pianoChart = new Chart(pianoData);
+  var barChart = new Chart(barData, 'barChart');
+  var pieChart = new Chart(pieData, 'pieChart');
+  var gaugeChart = new Chart(gaugeData, 'gaugeChart');
+  var pianoChart = new Chart(pianoData, 'pianoChart');
 })();
