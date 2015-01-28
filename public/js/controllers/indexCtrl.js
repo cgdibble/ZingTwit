@@ -28,7 +28,7 @@
     this.postDB = function() {
       $http.put('/search', { q : this.userQuery })
         .success(function(data) {
-          console.log("Request to /search worked: " + data);
+          console.log("Request to /search worked: " + data.screen_name);
         })
         .error(function(err) {
           console.log("Request to /search did no work: " + err);
