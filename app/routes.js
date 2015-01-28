@@ -26,8 +26,10 @@ module.exports = function(app) {
     var userData;
 
     client.get('users/search', { q: req.body.query }, function (err, data, response) {
-      //save each user searched in DB
-        //
+      // save each user searched in DB
+        // pull the last ~3 ((maybe just last one...sort of an example/benchmark---make it me?)) user datas searched and chart them.
+        // if they clear the chart
+          // then only add the data as they save it to the DB.....have to keep track of the ones they enter::::an array of queries they make in angular that for each one the necessary functions are called to get the data and chart it.
 
       userData = {
         screen_name : data[0].screen_name,
