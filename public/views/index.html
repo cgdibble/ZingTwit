@@ -22,15 +22,9 @@
       <div class="row text-center" ng-controller="ChartController as chartCtrl">
         <div class="col-sm-12 well">
             <br>
-<!--           <p class="test">ZingTwit is a way to visualize trending topics on Twitter...or at least it will be!</p>-->
             <form name="queryForm" ng-submit="queryForm.$valid && chartCtrl.queryTwitter()" novalidate>
             <input class="search-field" type="text" name="users" placeholder="Enter a Twitter User" ng-model="chartCtrl.userQuery" required>
-            <!-- <br>{{"Valid text field???: " + queryForm.$valid}}-->
-
-            <br>
-
-
-            <br>
+            <br><br>
             <input type="submit" class="btn btn-primary" value="Search">
             <br><br>
             <input type = "submit" class="btn" value="Clear Charts" ng-click="chartCtrl.clearData()">
@@ -39,28 +33,28 @@
         <section ng-controller="TabController as tab">
           <ul class="nav nav-pills">
             <li ng-class="{active:tab.isSelected(1)}">
-              <a href ng-click="tab.selectPanel(1)">User Data(Piano)</a>
+              <a href ng-click="tab.selectPanel(1)">User Data (Piano)</a>
             </li>
             <li ng-class="{active:tab.isSelected(2)}">
-              <a href ng-click="tab.selectPanel(2)">Followers(Bar)</a>
+              <a href ng-click="tab.selectPanel(2)">Followers (Bar)</a>
             </li>
             <li ng-class="{active:tab.isSelected(3)}">
-              <a href ng-click="tab.selectPanel(3)">Friends(Pie)</a>
+              <a href ng-click="tab.selectPanel(3)">Friends (Pie)</a>
             </li>
             <li ng-class="{active:tab.isSelected(4)}">
-              <a href ng-click="tab.selectPanel(4)">Tweets(Gauge)</a>
+              <a href ng-click="tab.selectPanel(4)">Tweets (Gauge)</a>
             </li>
             <li ng-class="{active:tab.isSelected(5)}">
-              <a href ng-click="tab.selectPanel(5)">Retweets(Piano)</a>
+              <a href ng-click="tab.selectPanel(5)">Retweets (*****)</a>
             </li>
           </ul>
 
 
           <div id="pianoChart" class="well" ng-show="tab.isSelected(1)">
-            <!-- NEED to display all of the users data... -->
             {{chartCtrl.renderChart(chartCtrl.pianoChart)}}
           </div>
           <div id="barChart" class="well" ng-show="tab.isSelected(2)">
+            {{chartCtrl.barChart.data.series}}
             {{chartCtrl.renderChart(chartCtrl.barChart)}}
           </div>
           <div id="pieChart" class="well" ng-show="tab.isSelected(3)">

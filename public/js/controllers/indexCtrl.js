@@ -14,6 +14,26 @@
     this.userQuery; //each user/search will be assigned to this string, have to break it up
 
 
+
+    this.assignData = function() {
+      // loop through the twitterQueries array and for each element, add the Followers data with the corresponding USERNAME as the X-AXIS value
+      for(var i = 0; i < this.twitterQueries.length;i++) {
+        //for each person, add their data to the given chart datasets
+        // pianoChart ====== UserData
+        // this.pianoChart.data.series.push({"values" : twitterQueries[i].followers_count})
+        this.barChart.data.series.push({"values" : [this.twitterQueries[i].followers_count]})
+        this.pieChart.data.series.push({"values" : [this.twitterQueries[i].friends_count]})
+        this.gaugeChart.data.series.push({"values" : [this.twitterQueries[i].followers_count]})
+
+        console.log(this.barChart.data.series[0])
+
+        // barChart ====== Followers
+        // pieChart ====== Friends
+        // gaugeChart ====== Tweets
+        // *Chart ====== ReTweets....DONT HAVE A CHART TYPE YET
+      }
+    }
+
     this.renderChart = function(chart) {
       zingchart.render({
         id: chart.divId,
@@ -33,12 +53,14 @@
       $http.put('/search', { query : userQuery })
         .success(function(data) {
           dashScope.twitterQueries.push(data)
+          dashScope.assignData();
           console.log("Successful Query::DashController::postDb()");
         })
         .error(function(err) {
           console.log("Request to /search did no work: " + err);
         });
     },
+
     this.clearData = function() {
       console.log("CLEARING DATA")
       this.twitterQueries = [];
@@ -72,9 +94,6 @@
       "text":"Follower Counts"
     },
     "series": [
-      {"values": [2700] },
-      {"values": [470] },
-      {"values": [12322] }
     ]
   }
 
@@ -84,9 +103,6 @@
       "text":"Friend Counts"
     },
     "series": [
-      {"values": [2700] },
-      {"values": [470] },
-      {"values": [12322] }
     ]
   }
 
@@ -96,9 +112,6 @@
       "text":"Status Counts"
     },
     "series": [
-      {"values": [2700] },
-      {"values": [470] },
-      {"values": [12322] }
     ]
   }
   var pianoData = {
@@ -107,9 +120,6 @@
       "text":"Follower Comparisons"
     },
     "series": [
-      {"values": [2700] },
-      {"values": [470] },
-      {"values": [12322] }
     ]
   }
 
