@@ -16,14 +16,20 @@
 
 
     this.assignData = function(data) {
-        this.barChart.data.series.push(
-          {"text" : "@" + data.screen_name,
-         "values" : [data.followers_count]
+        this.barChart.data.series.push({
+          "text" : "@" + data.screen_name,
+          "values" : [data.followers_count]
          });   // barChart ====== Followers
 
-        this.pianoChart.data.series.push(
-          {"text" : "@" + data.screen_name,
-          "values" : [data.followers_count, data.friends_count, data.statuses_count, data.status_retweets]});
+        this.pianoChart.data.series.push({
+          "text" : "@" + data.screen_name,
+          "values" : [data.followers_count, data.friends_count, data.statuses_count, data.status_retweets]
+        });
+
+        this.pieChart.data.series.push({
+          "text" : "@" + data.screen_name,
+          "values" : [data.friends_count]
+        });
 
         console.log(this.pianoChart.data.series)
 
