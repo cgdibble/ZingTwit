@@ -3,10 +3,13 @@
   var dash = angular.module("zingTwit", []);
 
   dash.controller('ChartController', ['$scope', '$http', function($scope, $http) {
+    this.panel = 0;
+
     this.barChart = barChart;
     this.pieChart = pieChart;
     this.gaugeChart = gaugeChart;
     this.pianoChart = pianoChart;
+    this.pieThreeDChart = pieThreeDChart;
 
     this.charts = [this.barChart, this.pieChart, this.gaugeChart, this.pianoChart];
 
@@ -31,10 +34,16 @@
           "values" : [data.friends_count]
         });
 
-        console.log(this.pianoChart.data.series)
+        this.gaugeChart.data.series.push({
+          "text" : "@" + data.screen_name,
+          "values" : [data.statuses_count]
+        });
 
+        this.pieThreeDChart.data.series.push({
+          "text" : "@" + data.screen_name,
+          "values" : [data.status_retweets]
+        });
         // pianoChart ====== UserData
-
         // pieChart ====== Friends
         // gaugeChart ====== Tweets
         // *Chart ====== ReTweets....DONT HAVE A CHART TYPE YET
@@ -75,12 +84,7 @@
       for (var index = 0;index < this.charts.length; index++) {
         this.charts[index].data.series = [];
       }
-    }
-
-  }]); // END of Chart Controller
-
-  dash.controller('TabController', function(){
-    this.panel = 1;
+    },
 
     this.selectPanel = function(newPanel) {
       this.panel = newPanel;
@@ -88,7 +92,8 @@
     this.isSelected = function(checkPanel) {
       return this.panel === checkPanel;
     }
-  }); //END of Tab Controller
+
+  }]); // END of Chart Controller
 
 /////////////////////////////////////
 ///////     Chart Objects     ///////
@@ -129,6 +134,25 @@
     "series": []
   }
 
+  var pieThreeD = {
+    "type":"pie",
+    "title": {
+      "text":"Re-tweet Count"
+    },
+    "legend" : {},
+    "plot" : {
+       "slice" : 45,
+        "valueBox" : {
+            "type" : "all",
+            "placement":  "top"
+        },
+    },
+    "plotarea" : {
+      "margin-top":  "35px"
+    },
+    "series": []
+  }
+
   var gaugeData = {
     "type":"gauge",
     "title": {
@@ -162,4 +186,5 @@
   var pieChart = new Chart(pieData, 'pieChart');
   var gaugeChart = new Chart(gaugeData, 'gaugeChart');
   var pianoChart = new Chart(pianoData, 'pianoChart');
+  var pieThreeDChart = new Chart(pieThreeD, 'pieThreeDChart')
 })();
