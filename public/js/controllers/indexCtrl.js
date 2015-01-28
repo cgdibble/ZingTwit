@@ -16,7 +16,11 @@
 
 
     this.assignData = function(data) {
-        this.barChart.data.series.push({"values" : [data.followers_count]})   // barChart ====== Followers
+        this.barChart.data.series.push(
+          {"text" : data.screen_name,
+         "values" : [data.followers_count]
+         });   // barChart ====== Followers
+
         this.pianoChart.data.series.push(
           {"values" : [data.followers_count, data.friends_count, data.statuses_count, data.status_retweets]});
 
@@ -93,11 +97,12 @@
     "title": {
       "text":"Follower Counts"
     },
-    "scaleX" : {
-      "values" : []
-    },
-    "scaleY" : {
-      "values" : []
+    "legend" : {},
+    "plot": {
+        "valueBox": {
+            "type": "all",
+            "placement": "top"
+        }
     },
     "series": []
   }
@@ -107,11 +112,12 @@
     "title": {
       "text":"Friend Counts"
     },
-    "scaleX" : {
-      "values" : []
-    },
-    "scaleY" : {
-      "values" : []
+    "legend" : {},
+    "plot": {
+        "valueBox": {
+            "type": "all",
+            "placement": "top"
+        }
     },
     "series": []
   }
@@ -121,11 +127,12 @@
     "title": {
       "text":"Status Counts"
     },
-    "scaleX" : {
-      "values" : []
-    },
-    "scaleY" : {
-      "values" : []
+    "legend" : {},
+    "plot": {
+        "valueBox": {
+            "type": "all",
+            "placement": "top"
+        }
     },
     "series": []
   }
@@ -134,11 +141,12 @@
     "title": {
       "text":"Follower Comparisons"
     },
-    "scaleX" : {
-      "values" : []
-    },
-    "scaleY" : {
-      "values" : []
+    "legend" : {},
+    "plot": {
+        "valueBox": {
+            "type": "all",
+            "placement": "top"
+        }
     },
     "series": [
     ]
