@@ -29,9 +29,9 @@ module.exports = function(app) {
         // send back as JSON to Angular.
     var q;
 
-    // app.get('https://api.twitter.com/1.1/users/search.json?q=cgdibble&page=1&count=3', function(data) {
-    //   console.log("hopefully this is twitter user data: " + data);
-    // });
+    client.get('users/suggestions/:slug', { slug: 'funny' }, function (err, data, response) {
+      console.log(data)
+    })
     // var q = "THIS IS FROM THE SERVER /search";
     res.json(q);
   });
