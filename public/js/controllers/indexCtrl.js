@@ -61,7 +61,9 @@
 
     this.clearData = function() {
       console.log("CLEARING DATA")
-      this.twitterQueries = [];
+      for (var index = 0;index < this.charts.length; index++) {
+        this.charts[index].data.series = [];
+      }
     }
 
   }]); // END of Chart Controller
