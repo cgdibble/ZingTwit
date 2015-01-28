@@ -36,7 +36,22 @@
             <input type = "submit" class="btn" value="Clear Chart">
           </form>
         </div>
-
+        <section>
+          <ul class="nav nav-pills">
+            <li>
+              <a href="">Followers(Bar)</a>
+            </li>
+            <li>
+              <a href="">Friends(Pie)</a>
+            </li>
+            <li>
+              <a href="">Tweets(Gauge)</a>
+            </li>
+            <li>
+              <a href="">Retweets(Piano)</a>
+            </li>
+          </ul>
+        </section>
 
         <div id="chartDiv" class="well" ng-repeat="chart in chartCtrl.charts">
           {{chart}}
