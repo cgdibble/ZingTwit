@@ -22,10 +22,6 @@ module.exports = function(app) {
   });
 
   app.put('/search', function(req, res) {
-    console.log(process.env.CONSUMER_KEY);
-    console.log(process.env.CONSUMER_SECRET);
-    console.log(process.env.ACCESS_TOKEN);
-    console.log(process.env.ACCESS_TOKEN_SECRET);
     // This route should take the data passed to it, parse it out properly such that it can then query
     //    the twitter db for users
     // take the data Twitter returns, parse out what is needed (followers, followed, tweets, retweets)
