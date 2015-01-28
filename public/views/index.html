@@ -10,11 +10,6 @@
   <body>
     <header>
     </header>
-    <!--
-        Have each CHART/DATA-TYPE be Tabs to navigate
-
-        <<<< ng-repeat for each json object and for each piece of data for each user, plot it on a specific type of graph
-     -->
     <div class="container">
     <div class="">
       <a href="/" class=" header container-fluid text-center page-header title navbar-brand col-xs-12">ZingTwit</a>
@@ -54,7 +49,6 @@
             {{chartCtrl.renderChart(chartCtrl.pianoChart)}}
           </div>
           <div id="barChart" class="well" ng-show="chartCtrl.isSelected(2)">
-            {{chartCtrl.barChart.data.series}}
             {{chartCtrl.renderChart(chartCtrl.barChart)}}
           </div>
           <div id="pieChart" class="well" ng-show="chartCtrl.isSelected(3)">
