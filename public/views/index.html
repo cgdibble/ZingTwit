@@ -10,11 +10,14 @@
   <body>
     <header>
     </header>
+    <!--
+        Have each CHART/DATA-TYPE be Tabs to navigate
+     -->
+    <div class="container">
     <div class="">
-      <a href="/" class=" header page-header title navbar-brand col-xs-12">ZingTwit</a>
+      <a href="/" class=" header container-fluid text-center page-header title navbar-brand col-xs-12">ZingTwit</a>
     </div>
-    <div class="container text-center">
-      <div class="row" ng-controller="ChartController as chartCtrl">
+      <div class="row text-center" ng-controller="ChartController as chartCtrl">
         <div class="col-sm-12 well">
           <br>
           <p class="test">ZingTwit is a way to visualize trending topics on Twitter...or at least it will be!</p>
