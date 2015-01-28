@@ -93,8 +93,10 @@
     "title": {
       "text":"Follower Counts"
     },
-    "series": [
-    ]
+    "scaleX" : {
+      "values" : []
+    },
+    "series": []
   }
 
   var pieData = {
@@ -102,8 +104,10 @@
     "title": {
       "text":"Friend Counts"
     },
-    "series": [
-    ]
+    "scaleX" : {
+      "values" : []
+    },
+    "series": []
   }
 
   var gaugeData = {
@@ -111,14 +115,19 @@
     "title": {
       "text":"Status Counts"
     },
-    "series": [
-    ]
+    "scaleX" : {
+      "values" : []
+    },
+    "series": []
   }
   var pianoData = {
     "type":"piano",
     "title": {
       "text":"Follower Comparisons"
     },
+    "scaleX" : {
+      "values" : []
+    }
     "series": [
     ]
   }
