@@ -1,16 +1,17 @@
 // grab our Query model
 var Query = require('./models/query');
 var Twitter = require('twitter');
-var client = new Twitter({
+var twit = require('twit');
+var client = new twit({
   consumer_key : process.env.CONSUMER_KEY,
   consumer_secret : process.env.CONSUMER_SECRET,
-  access_token_key : process.env.ACCESS_TOKEN,
+  access_token : process.env.ACCESS_TOKEN,
   access_token_secret : process.env.ACCESS_TOKEN_SECRET
-});   // Need to add these values from twitter account but hidden in a DOTENV
+});
+
+
 
 module.exports = function(app) {
-  //This is where the server routes go
-  //can be anything from API calls, to authentication routes
 
   app.get('/', function(req, res) {
     // console.log("In / request");
@@ -26,7 +27,12 @@ module.exports = function(app) {
     //    the twitter db for users
     // take the data Twitter returns, parse out what is needed (followers, followed, tweets, retweets)
         // send back as JSON to Angular.
-    var q = "THIS IS FROM THE SERVER /search";
+    var q;
+
+    client.get('users/suggestions/:slug', { slug: 'funny' }, function (err, data, response) {
+      console.log(data)
+    })
+    // var q = "THIS IS FROM THE SERVER /search";
     res.json(q);
   });
 
