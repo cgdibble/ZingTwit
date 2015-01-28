@@ -17,12 +17,13 @@
 
     this.assignData = function(data) {
         this.barChart.data.series.push(
-          {"text" : data.screen_name,
+          {"text" : "@" + data.screen_name,
          "values" : [data.followers_count]
          });   // barChart ====== Followers
 
         this.pianoChart.data.series.push(
-          {"values" : [data.followers_count, data.friends_count, data.statuses_count, data.status_retweets]});
+          {"text" : "@" + data.screen_name,
+          "values" : [data.followers_count, data.friends_count, data.statuses_count, data.status_retweets]});
 
         console.log(this.pianoChart.data.series)
 
@@ -148,8 +149,7 @@
             "placement": "top"
         }
     },
-    "series": [
-    ]
+    "series": []
   }
 
   var barChart = new Chart(barData, 'barChart');
