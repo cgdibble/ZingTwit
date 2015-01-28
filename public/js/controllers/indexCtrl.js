@@ -18,16 +18,18 @@
     },
 
     this.queryTwitter = function() {
-      this.twitterQueries.push(this.userQuery)
+      // this.twitterQueries.push(this.userQuery)
       this.postDB(this.userQuery);
       this.userQuery = ""; //reset text field.
     },
 
     this.postDB = function(userQuery) {
-      console.log(this.twitterQueries);
+      var dashScope = this
       $http.put('/search', { query : userQuery })
         .success(function(data) {
           console.log("Request to /search worked: " + data.screen_name);
+          dashScope.twitterQueries.push(data)
+          console.log(dashScope.twitterQueries);
           // this.parseData(data);
         })
         .error(function(err) {
@@ -36,12 +38,13 @@
     },
 
     this.parseData = function(userData) {
+    }
         ////////      WHAT IF     :::::::::::
 
               // ng-repeat went through each query in the twitterQueries array(((this happens for each submission of the form)))
                 // for every query, it hit Node, got the twitter data and graphed it.
                     //then the data does not need to be saved???
-    }
+
   }]);
 
 /////////////////////////////////////
