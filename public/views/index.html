@@ -45,19 +45,19 @@
           </ul>
 
           <div class="well blank-panel" ng-show="chartCtrl.isSelected(0)"></div>
-          <div id="pianoChart" class="well" ng-show="chartCtrl.isSelected(1)">
+          <div id="pianoChart" class="well" ng-show="chartCtrl.isSelected(1) && chartCtrl.twitterQueries.length > 0">
             {{chartCtrl.renderChart(chartCtrl.pianoChart)}}
           </div>
-          <div id="barChart" class="well" ng-show="chartCtrl.isSelected(2)">
+          <div id="barChart" class="well" ng-show="chartCtrl.isSelected(2) && chartCtrl.twitterQueries.length > 0">
             {{chartCtrl.renderChart(chartCtrl.barChart)}}
           </div>
-          <div id="pieChart" class="well" ng-show="chartCtrl.isSelected(3)">
+          <div id="pieChart" class="well" ng-show="chartCtrl.isSelected(3) && chartCtrl.twitterQueries.length > 0">
             {{chartCtrl.renderChart(chartCtrl.pieChart)}}
           </div>
-          <div id="gaugeChart" class="well" ng-show="chartCtrl.isSelected(4)">
+          <div id="gaugeChart" class="well" ng-show="chartCtrl.isSelected(4) && chartCtrl.twitterQueries.length > 0">
             {{chartCtrl.renderChart(chartCtrl.gaugeChart)}}
           </div>
-          <div id="pieThreeDChart" class="well" ng-show="chartCtrl.isSelected(5)">
+          <div id="pieThreeDChart" class="well" ng-show="chartCtrl.isSelected(5) && chartCtrl.twitterQueries.length > 0">
             {{chartCtrl.renderChart(chartCtrl.pieThreeDChart)}}
           </div>
         </section>

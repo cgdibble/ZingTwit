@@ -18,36 +18,31 @@
 
 
 
-    this.assignData = function(data) {
+    this.assignData = function(userData) {
         this.barChart.data.series.push({
-          "text" : "@" + data.screen_name,
-          "values" : [data.followers_count]
+          "text" : "@" + userData.screen_name,
+          "values" : [userData.followers_count]
          });   // barChart ====== Followers
 
         this.pianoChart.data.series.push({
-          "text" : "@" + data.screen_name,
-          "values" : [data.followers_count, data.friends_count, data.statuses_count, data.status_retweets]
+          "text" : "@" + userData.screen_name,
+          "values" : [userData.followers_count, userData.friends_count, userData.statuses_count, userData.status_retweets]
         });
 
         this.pieChart.data.series.push({
-          "text" : "@" + data.screen_name,
-          "values" : [data.friends_count]
+          "text" : "@" + userData.screen_name,
+          "values" : [userData.friends_count]
         });
 
         this.gaugeChart.data.series.push({
-          "text" : "@" + data.screen_name,
-          "values" : [data.statuses_count]
+          "text" : "@" + userData.screen_name,
+          "values" : [userData.statuses_count]
         });
 
         this.pieThreeDChart.data.series.push({
-          "text" : "@" + data.screen_name,
-          "values" : [data.status_retweets]
+          "text" : "@" + userData.screen_name,
+          "values" : [userData.status_retweets]
         });
-        // pianoChart ====== UserData
-        // pieChart ====== Friends
-        // gaugeChart ====== Tweets
-        // *Chart ====== ReTweets....DONT HAVE A CHART TYPE YET
-
     }
 
     this.renderChart = function(chart) {
