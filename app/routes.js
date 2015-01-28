@@ -14,12 +14,7 @@ var client = new twit({
 module.exports = function(app) {
 
   app.get('/', function(req, res) {
-    // console.log("In / request");
     res.sendfile("./public/views/index.html")
-    // Query.find( function(err, query) {
-    //   console.log(query);
-    //   err ? res.send(err) : res.json(query); // refactoring of above
-    // });
   });
 
   app.put('/search', function(req, res) {
