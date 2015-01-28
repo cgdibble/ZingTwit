@@ -14,45 +14,27 @@ var client = new twit({
 module.exports = function(app) {
 
   app.get('/', function(req, res) {
-    // console.log("In / request");
     res.sendfile("./public/views/index.html")
-    // Query.find( function(err, query) {
-    //   console.log(query);
-    //   err ? res.send(err) : res.json(query); // refactoring of above
-    // });
   });
 
   app.put('/search', function(req, res) {
-    // This route should take the data passed to it, parse it out properly such that it can then query
-    //    the twitter db for users
-    // take the data Twitter returns, parse out what is needed
+    var userData;
 
-                  // (followers, followed, tweets, retweets)
-    var q;
+    client.get('users/search', { q: req.body.query }, function (err, data, response) {
+      // save each user searched in DB
+        // pull the last ~3 ((maybe just last one...sort of an example/benchmark---make it me?)) user datas searched and chart them.
+        // if they clear the chart
+          // then only add the data as they save it to the DB.....have to keep track of the ones they enter::::an array of queries they make in angular that for each one the necessary functions are called to get the data and chart it.
 
-    client.get('users/search', { q: 'cgdibble' }, function (err, data, response) {
-      // console.log(data[0].screen_name);
-      // console.log(data[0].followers_count);
-      // console.log(data[0].friends_count);
-      // console.log(data[0].statuses_count);
-      // console.log(data[0].status.retweet_count);
-      q = {
+      userData = {
         screen_name : data[0].screen_name,
         followers_count : data[0].followers_count,
         friends_count : data[0].friends_count,
         statuses_count : data[0].statuses_count,
         status_retweets : data[0].status.retweet_count
       }
-      console.log(q)
-    res.json(q);
+      // console.log(userData); // DEVELOPMENT log
+      res.json(userData);
     })
   });
-
-
-
-  // app.get('*', function(req, res) {
-  //   // send the index html because  this is a single pageapp
-  //     // other routes will just be for data and such.
-  //   res.sendfile("./public/views/index.html")
-  // });
 }

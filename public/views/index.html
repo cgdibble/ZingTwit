@@ -10,11 +10,14 @@
   <body>
     <header>
     </header>
-    <div class="header">
-      <a href="/" class="title navbar-brand col-xs-12">ZingTwit</a>
+    <!--
+        Have each CHART/DATA-TYPE be Tabs to navigate
+     -->
+    <div class="container">
+    <div class="">
+      <a href="/" class=" header container-fluid text-center page-header title navbar-brand col-xs-12">ZingTwit</a>
     </div>
-    <div class="container text-center">
-      <div class="row" ng-controller="ChartController as chartCtrl">
+      <div class="row text-center" ng-controller="ChartController as chartCtrl">
         <div class="col-sm-12 well">
           <br>
           <p class="test">ZingTwit is a way to visualize trending topics on Twitter...or at least it will be!</p>
@@ -27,6 +30,8 @@
 
             <br>
             <input type="submit" class="btn btn-primary" value-"Search Hashtag!">
+            <br><br>
+            <input type = "submit" class="btn" value="Clear Chart">
           </form>
         </div>
         <div id="barChartDiv" class="well">
