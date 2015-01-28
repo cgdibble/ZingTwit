@@ -5,6 +5,8 @@ html, body {
 
 /*    HEADER     */
 .header {
+  margin-top: 0;
+  padding: auto;
   height: 70px;
 }
 .title {

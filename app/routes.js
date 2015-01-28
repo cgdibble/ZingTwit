@@ -9,6 +9,8 @@ var client = new twit({
   access_token_secret : process.env.ACCESS_TOKEN_SECRET
 });
 
+
+
 module.exports = function(app) {
 
   app.get('/', function(req, res) {
@@ -36,3 +38,4 @@ module.exports = function(app) {
       res.json(userData);
     })
   });
+}
