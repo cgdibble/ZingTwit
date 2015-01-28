@@ -45,7 +45,18 @@
                 // for every query, it hit Node, got the twitter data and graphed it.
                     //then the data does not need to be saved???
 
-  }]);
+  }]); // END of Chart Controller
+
+  dash.controller('TabController', function(){
+    this.panel = 1;
+
+    this.selectPanel = function(newPanel) {
+      this.panel = newPanel;
+    };
+    this.isSelected = function(checkPanel) {
+      return this.panel === checkPanel;
+    }
+  })
 
 /////////////////////////////////////
 ///////     Chart Objects     ///////
