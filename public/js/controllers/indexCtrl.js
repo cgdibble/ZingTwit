@@ -26,13 +26,18 @@
     },
 
     this.postDB = function() {
-      $http.put('/search', { q : this.userQuery })
+      $http.put('/search', { query : "CGDIBBLE" })
         .success(function(data) {
           console.log("Request to /search worked: " + data.screen_name);
+          // this.parseData(data);
         })
         .error(function(err) {
           console.log("Request to /search did no work: " + err);
         });
+    },
+
+    this.parseData = function(userData) {
+
     }
   }]);
 

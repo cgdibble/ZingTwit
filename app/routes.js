@@ -28,23 +28,24 @@ module.exports = function(app) {
     // take the data Twitter returns, parse out what is needed
 
                   // (followers, followed, tweets, retweets)
-    var q;
+    var userData;
 
     client.get('users/search', { q: 'cgdibble' }, function (err, data, response) {
+      console.log(req.body.query);
       // console.log(data[0].screen_name);
       // console.log(data[0].followers_count);
       // console.log(data[0].friends_count);
       // console.log(data[0].statuses_count);
       // console.log(data[0].status.retweet_count);
-      q = {
+      userData = {
         screen_name : data[0].screen_name,
         followers_count : data[0].followers_count,
         friends_count : data[0].friends_count,
         statuses_count : data[0].statuses_count,
         status_retweets : data[0].status.retweet_count
       }
-      console.log(q)
-    res.json(q);
+      console.log(userData)
+    res.json(userData);
     })
   });
 
