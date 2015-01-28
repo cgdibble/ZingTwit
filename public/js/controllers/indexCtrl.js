@@ -8,14 +8,15 @@
     this.gaugeChart = gaugeChart;
     this.pianoChart = pianoChart;
 
-    this.charts = [barChart, pieChart, gaugeChart, pianoChart];
+    this.charts = [this.barChart, this.pieChart, this.gaugeChart, this.pianoChart];
 
     this.twitterQueries = [];
     this.userQuery; //each user/search will be assigned to this string, have to break it up
 
     this.renderChart = function(chart) {
+      console.log(chart.data);
       zingchart.render({
-        id: chart.divId,
+        id: 'chartDiv',
         data: chart.data,
         height: 400,
         width: "95%"
@@ -49,8 +50,7 @@
 /////////////////////////////////////
 ///////     Chart Objects     ///////
 
-  function Chart(divId, data) {
-    this.divId = divId;
+  function Chart(data) {
     this.data = data;
   }
 
@@ -101,8 +101,8 @@
     ]
   }
 
-  var barChart = new Chart('barChartDiv', barData);
-  var pieChart = new Chart('pieChartDiv', pieData);
-  var gaugeChart = new Chart('gaugeChartDiv', gaugeData);
-  var pianoChart = new Chart('pianoChartDiv', pianoData);
+  var barChart = new Chart(barData);
+  var pieChart = new Chart(pieData);
+  var gaugeChart = new Chart(gaugeData);
+  var pianoChart = new Chart(pianoData);
 })();

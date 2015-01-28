@@ -21,14 +21,14 @@
     </div>
       <div class="row text-center" ng-controller="ChartController as chartCtrl">
         <div class="col-sm-12 well">
-          <br>
-          <p class="test">ZingTwit is a way to visualize trending topics on Twitter...or at least it will be!</p>
-          <form name="queryForm" ng-submit="queryForm.$valid && chartCtrl.queryTwitter()" novalidate>
+            <br>
+<!--           <p class="test">ZingTwit is a way to visualize trending topics on Twitter...or at least it will be!</p>-->
+            <form name="queryForm" ng-submit="queryForm.$valid && chartCtrl.queryTwitter()" novalidate>
             <input class="search-field" type="text" name="users" placeholder="Enter a Twitter User" ng-model="chartCtrl.userQuery" required>
-            <br>{{"Valid text field???: " + queryForm.$valid}}                         <!-- DEVELOPMENT code -->
+            <!-- <br>{{"Valid text field???: " + queryForm.$valid}}-->
 
             <br>
-            {{"UserQuery: " + chartCtrl.userQuery}}          <!-- DEVELOPMENT code -->
+
 
             <br>
             <input type="submit" class="btn btn-primary" value-"Search Hashtag!">
@@ -36,14 +36,22 @@
             <input type = "submit" class="btn" value="Clear Chart">
           </form>
         </div>
-        <div id="barChartDiv" class="well">
+
+
+        <div id="chartDiv" class="well" ng-repeat="chart in chartCtrl.charts">
+          {{chart}}
+          {{chartCtrl.renderChart(chart)}}
+        </div>
+
+
+        <!-- <div id="barChartDiv" class="well"> -->
           <!-- Put graphs here -->
-          {{chartCtrl.renderChart(chartCtrl.barChart)}}
-          <br><br>
-        </div>
-        <div id="pieChartDiv" class="well ">
-          {{chartCtrl.renderChart(chartCtrl.pieChart)}}
-        </div>
+          <!-- {{chartCtrl.renderChart(chartCtrl.barChart)}} -->
+          <!-- <br><br> -->
+        <!-- </div> -->
+        <!-- <div id="pieChartDiv" class="well "> -->
+          <!-- {{chartCtrl.renderChart(chartCtrl.pieChart)}} -->
+        <!-- </div> -->
       </div>
     </div>
 
