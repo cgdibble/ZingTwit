@@ -15,23 +15,19 @@
 
 
 
-    this.assignData = function() {
-      // loop through the twitterQueries array and for each element, add the Followers data with the corresponding USERNAME as the X-AXIS value
-      for(var i = 0; i < this.twitterQueries.length;i++) {
-        //for each person, add their data to the given chart datasets
+    this.assignData = function(data) {
+        this.barChart.data.series.push({"values" : [data.followers_count]})   // barChart ====== Followers
+        this.pianoChart.data.series.push(
+          {"values" : [data.followers_count, data.friends_count, data.statuses_count, data.status_retweets]});
+
+        console.log(this.pianoChart.data.series)
+
         // pianoChart ====== UserData
-        // this.pianoChart.data.series.push({"values" : twitterQueries[i].followers_count})
-        this.barChart.data.series.push({"values" : [this.twitterQueries[i].followers_count]})
-        this.pieChart.data.series.push({"values" : [this.twitterQueries[i].friends_count]})
-        this.gaugeChart.data.series.push({"values" : [this.twitterQueries[i].followers_count]})
 
-        console.log(this.barChart.data.series[0])
-
-        // barChart ====== Followers
         // pieChart ====== Friends
         // gaugeChart ====== Tweets
         // *Chart ====== ReTweets....DONT HAVE A CHART TYPE YET
-      }
+
     }
 
     this.renderChart = function(chart) {
@@ -51,9 +47,11 @@
     this.postDB = function(userQuery) {
       var dashScope = this
       $http.put('/search', { query : userQuery })
+
         .success(function(data) {
           dashScope.twitterQueries.push(data)
-          dashScope.assignData();
+          dashScope.assignData(data);
+
           console.log("Successful Query::DashController::postDb()");
         })
         .error(function(err) {
