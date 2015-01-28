@@ -5,6 +5,9 @@
   dash.controller('ChartController', ['$scope', '$http', function($scope, $http) {
     this.barChart = barChart;
     this.pieChart = pieChart;
+    this.gaugeChart = gaugeChart;
+    this.pianoChart = pianoChart;
+
     this.twitterQueries = [];
     this.userQuery; //each user/search will be assigned to this string, have to break it up
 
@@ -97,4 +100,6 @@
 
   var barChart = new Chart('barChartDiv', barData);
   var pieChart = new Chart('pieChartDiv', pieData);
+  var gaugeChart = new Chart('gaugeChartDiv', gaugeData);
+  var pianoChart = new Chart('pianoChartDiv', pianoData);
 })();
