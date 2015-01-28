@@ -1,10 +1,11 @@
 // grab our Query model
 var Query = require('./models/query');
 var Twitter = require('twitter');
-var client = new Twitter({
+var twit = require('twit');
+var client = new twit({
   consumer_key : process.env.CONSUMER_KEY,
   consumer_secret : process.env.CONSUMER_SECRET,
-  access_token_key : process.env.ACCESS_TOKEN,
+  access_token : process.env.ACCESS_TOKEN,
   access_token_secret : process.env.ACCESS_TOKEN_SECRET
 });
 
@@ -26,12 +27,12 @@ module.exports = function(app) {
     //    the twitter db for users
     // take the data Twitter returns, parse out what is needed (followers, followed, tweets, retweets)
         // send back as JSON to Angular.
-    client.get('favorites/list', function(error, tweets, response) {
-      if(error) throw error;
-      // console.log(tweets);
-      console.log(response);
-    });
-    var q = "THIS IS FROM THE SERVER /search";
+    var q;
+
+    // app.get('https://api.twitter.com/1.1/users/search.json?q=cgdibble&page=1&count=3', function(data) {
+    //   console.log("hopefully this is twitter user data: " + data);
+    // });
+    // var q = "THIS IS FROM THE SERVER /search";
     res.json(q);
   });
 

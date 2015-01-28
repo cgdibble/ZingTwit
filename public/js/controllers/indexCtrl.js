@@ -28,10 +28,10 @@
     this.postDB = function() {
       $http.put('/search', { q : this.userQuery })
         .success(function(data) {
-          console.log("Request to /test worked: " + data);
+          console.log("Request to /search worked: " + data);
         })
         .error(function(err) {
-          console.log("Request to /test did no work: " + err);
+          console.log("Request to /search did no work: " + err);
         });
     }
   }]);
