@@ -29,10 +29,10 @@ module.exports = function(app) {
         // send back as JSON to Angular.
     var q;
 
-    client.get('users/suggestions/:slug', { slug: 'funny' }, function (err, data, response) {
-      console.log(data)
+    client.get('users/search', { q: 'cgdibble' }, function (err, data, response) {
+      console.log(data[0].screen_name);
+      q = data;
     })
-    // var q = "THIS IS FROM THE SERVER /search";
     res.json(q);
   });
 
