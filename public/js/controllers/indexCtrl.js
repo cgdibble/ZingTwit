@@ -8,6 +8,8 @@
     this.gaugeChart = gaugeChart;
     this.pianoChart = pianoChart;
 
+    this.charts = [barChart, pieChart, gaugeChart, pianoChart];
+
     this.twitterQueries = [];
     this.userQuery; //each user/search will be assigned to this string, have to break it up
 
@@ -35,7 +37,7 @@
         .error(function(err) {
           console.log("Request to /search did no work: " + err);
         });
-    },
+    }
         ////////      WHAT IF     :::::::::::
 
               // ng-repeat went through each query in the twitterQueries array(((this happens for each submission of the form)))
@@ -51,6 +53,7 @@
     this.divId = divId;
     this.data = data;
   }
+
   var barData = {
     "type":"bar",
     "title": {
