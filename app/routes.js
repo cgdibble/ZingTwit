@@ -6,11 +6,11 @@ var client = new Twitter({
   consumer_secret : process.env.CONSUMER_SECRET,
   access_token_key : process.env.ACCESS_TOKEN,
   access_token_secret : process.env.ACCESS_TOKEN_SECRET
-});   // Need to add these values from twitter account but hidden in a DOTENV
+});
+
+
 
 module.exports = function(app) {
-  //This is where the server routes go
-  //can be anything from API calls, to authentication routes
 
   app.get('/', function(req, res) {
     // console.log("In / request");
@@ -26,6 +26,11 @@ module.exports = function(app) {
     //    the twitter db for users
     // take the data Twitter returns, parse out what is needed (followers, followed, tweets, retweets)
         // send back as JSON to Angular.
+    client.get('favorites/list', function(error, tweets, response) {
+      if(error) throw error;
+      // console.log(tweets);
+      console.log(response);
+    });
     var q = "THIS IS FROM THE SERVER /search";
     res.json(q);
   });
