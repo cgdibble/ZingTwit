@@ -9,8 +9,6 @@ var client = new twit({
   access_token_secret : process.env.ACCESS_TOKEN_SECRET
 });
 
-
-
 module.exports = function(app) {
 
   app.get('/', function(req, res) {
@@ -23,20 +21,10 @@ module.exports = function(app) {
   });
 
   app.put('/search', function(req, res) {
-    // This route should take the data passed to it, parse it out properly such that it can then query
-    //    the twitter db for users
-    // take the data Twitter returns, parse out what is needed
-
-                  // (followers, followed, tweets, retweets)
     var userData;
 
     client.get('users/search', { q: req.body.query }, function (err, data, response) {
-      console.log(req.body.query);
-      // console.log(data[0].screen_name);
-      // console.log(data[0].followers_count);
-      // console.log(data[0].friends_count);
-      // console.log(data[0].statuses_count);
-      // console.log(data[0].status.retweet_count);
+
       userData = {
         screen_name : data[0].screen_name,
         followers_count : data[0].followers_count,
@@ -44,16 +32,7 @@ module.exports = function(app) {
         statuses_count : data[0].statuses_count,
         status_retweets : data[0].status.retweet_count
       }
-      console.log(userData)
-    res.json(userData);
+      // console.log(userData); // DEVELOPMENT log
+      res.json(userData);
     })
   });
-
-
-
-  // app.get('*', function(req, res) {
-  //   // send the index html because  this is a single pageapp
-  //     // other routes will just be for data and such.
-  //   res.sendfile("./public/views/index.html")
-  // });
-}

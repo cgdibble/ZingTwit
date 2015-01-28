@@ -7,7 +7,7 @@
     this.pieChart = pieChart;
     this.twitterQuerry = []; // have n array of data and add it to the chart as necessary
     //on submission of form, push new chartData to this array
-    this.userQuery = ""; //each user/search will be assigned to this string, have to break it up
+    this.userQuery; //each user/search will be assigned to this string, have to break it up
     // console.log(this.userQuery);
 
     this.renderChart = function(chart) {
@@ -21,12 +21,12 @@
 
     this.queryTwitter = function() {
       this.twitterQuerry.push(this.userQuery)
-      this.postDB();
+      this.postDB(this.userQuery);
       this.userQuery = ""; //reset text field.
     },
 
-    this.postDB = function() {
-      $http.put('/search', { query : "cgdibble" })
+    this.postDB = function(userQuery) {
+      $http.put('/search', { query : userQuery })
         .success(function(data) {
           console.log("Request to /search worked: " + data.screen_name);
           // this.parseData(data);
