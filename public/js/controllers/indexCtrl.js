@@ -137,7 +137,7 @@
   var pieThreeD = {
     "type":"pie",
     "title": {
-      "text":"Re-tweet Count"
+      "text":"Retweet Count"
     },
     "legend" : {},
     "plot" : {
