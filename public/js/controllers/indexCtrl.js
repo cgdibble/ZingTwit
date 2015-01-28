@@ -96,6 +96,9 @@
     "scaleX" : {
       "values" : []
     },
+    "scaleY" : {
+      "values" : []
+    },
     "series": []
   }
 
@@ -105,6 +108,9 @@
       "text":"Friend Counts"
     },
     "scaleX" : {
+      "values" : []
+    },
+    "scaleY" : {
       "values" : []
     },
     "series": []
@@ -118,6 +124,9 @@
     "scaleX" : {
       "values" : []
     },
+    "scaleY" : {
+      "values" : []
+    },
     "series": []
   }
   var pianoData = {
@@ -127,7 +136,10 @@
     },
     "scaleX" : {
       "values" : []
-    }
+    },
+    "scaleY" : {
+      "values" : []
+    },
     "series": [
     ]
   }
