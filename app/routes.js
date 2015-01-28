@@ -25,15 +25,27 @@ module.exports = function(app) {
   app.put('/search', function(req, res) {
     // This route should take the data passed to it, parse it out properly such that it can then query
     //    the twitter db for users
-    // take the data Twitter returns, parse out what is needed (followers, followed, tweets, retweets)
-        // send back as JSON to Angular.
+    // take the data Twitter returns, parse out what is needed
+
+                  // (followers, followed, tweets, retweets)
     var q;
 
-    client.get('users/suggestions/:slug', { slug: 'funny' }, function (err, data, response) {
-      console.log(data)
-    })
-    // var q = "THIS IS FROM THE SERVER /search";
+    client.get('users/search', { q: 'cgdibble' }, function (err, data, response) {
+      // console.log(data[0].screen_name);
+      // console.log(data[0].followers_count);
+      // console.log(data[0].friends_count);
+      // console.log(data[0].statuses_count);
+      // console.log(data[0].status.retweet_count);
+      q = {
+        screen_name : data[0].screen_name,
+        followers_count : data[0].followers_count,
+        friends_count : data[0].friends_count,
+        statuses_count : data[0].statuses_count,
+        status_retweets : data[0].status.retweet_count
+      }
+      console.log(q)
     res.json(q);
+    })
   });
 
 
