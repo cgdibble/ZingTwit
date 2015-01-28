@@ -39,37 +39,36 @@
         <section>
           <ul class="nav nav-pills">
             <li>
-              <a href ng-click="tab = 1">Followers(Bar)</a>
+              <a href ng-click="tab = 1">User Data(Piano)</a>
             </li>
             <li>
-              <a href ng-click="tab = 2">Friends(Pie)</a>
+              <a href ng-click="tab = 2">Followers(Bar)</a>
             </li>
             <li>
-              <a href ng-click="tab = 3">Tweets(Gauge)</a>
+              <a href ng-click="tab = 3">Friends(Pie)</a>
             </li>
             <li>
-              <a href ng-click="tab = 4">Retweets(Piano)</a>
+              <a href ng-click="tab = 4">Tweets(Gauge)</a>
+            </li>
+            <li>
+              <a href ng-click="tab = 5">Retweets(Piano)</a>
             </li>
           </ul>
         </section>
 
-        <!-- <div id="chartDiv" class="well" ng-repeat="chart in chartCtrl.charts">
-          {{chart}}
-          {{chartCtrl.renderChart(chart)}}
-        </div> -->
+        <!-- DISPLAY PIANO WITH ALL DATA TYPES AS BASE -->
 
-
-        <div id="barChartDiv" class="well" ng-show="tab === 1">
-          BAR CHART DIV
+        <div id="barChart" class="well" ng-show="tab === 1">
+          {{chartCtrl.renderChart(chartCtrl.barChart)}}
         </div>
-        <div id="pieChartDiv" class="well" ng-show="tab === 2">
-          PIE CHART DIV
+        <div id="pieChart" class="well" ng-show="tab === 2">
+          {{chartCtrl.renderChart(chartCtrl.pieChart)}}
         </div>
         <div id="gaugeChart" class="well" ng-show="tab === 3">
-          GAUGE CHART
+          {{chartCtrl.renderChart(chartCtrl.gaugeChart)}}
         </div>
         <div id="pianoChart" class="well" ng-show="tab === 4">
-          PIANO CHART
+          {{chartCtrl.renderChart(chartCtrl.pianoChart)}}
         </div>
       </div>
     </div>

@@ -14,8 +14,9 @@
     this.userQuery; //each user/search will be assigned to this string, have to break it up
 
     this.renderChart = function(chart) {
+      console.log(chart);
       zingchart.render({
-        id: 'chartDiv',
+        id: chart.divId,
         data: chart.data,
         height: 400,
         width: "95%"
