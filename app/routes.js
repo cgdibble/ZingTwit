@@ -26,6 +26,8 @@ module.exports = function(app) {
     var userData;
 
     client.get('users/search', { q: req.body.query }, function (err, data, response) {
+      //save each user searched in DB
+        //
 
       userData = {
         screen_name : data[0].screen_name,
