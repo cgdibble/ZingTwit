@@ -1,0 +1,27 @@
+{
+  "name": "send",
+  "repo": "eyy/send",
+  "description": "Send forms as json!",
+  "keywords": [
+    "form",
+    "ajax",
+    "json",
+    "rest"
+  ],
+  "main": "send.js",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "*"
+  },
+  "homepage": "https://github.com/eyy/send",
+  "_release": "bfb31c549d",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "bfb31c549d371cf95b9f549c07354b63e17fc12a"
+  },
+  "_source": "git://github.com/eyy/send.git",
+  "_target": "*",
+  "_originalSource": "send",
+  "_direct": true
+}
