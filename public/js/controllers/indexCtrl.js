@@ -18,11 +18,7 @@
     this.userQuery; //each user/search will be assigned to this string, have to break it up
 
 // THINGS TO FIX:::
-
-    // Top left of Donut chart has what looks like legend info clumped together
-    // Center graphs in Div
     // chart Axis labels
-    // Before you search, the header has a grey background color(like the ".well" class)
 
     this.assignData = function(userData) {
         this.barChart.data.series.push({
@@ -86,6 +82,7 @@
       for (var index = 0;index < this.charts.length; index++) {
         this.charts[index].data.series = [];
       }
+      twitterQueries = []
       this.panel = 0;
     },
 
@@ -105,6 +102,21 @@
   function Chart(data, divId) {
     this.data = data;
     this.divId = divId;
+  }
+
+  var pianoData = {
+    "type":"piano",
+    "title": {
+      "text":"User Data"
+    },
+    "scale-x" : {
+        "values" : ["Followers", "Friends", "Tweets", "Retweets"]
+    },
+    "legend" : {},
+    "chart" : {
+      "marginLeft" : "100px"
+    },
+    "series": []
   }
 
   var barData = {
@@ -152,6 +164,16 @@
     "title": {
       "text":"Number of Tweets"
     },
+    "scale-r" : {
+      "aperture" : "225",
+      "center" : {
+        "size" : "10px",
+        "background-color" : "black"
+      },
+      "ring" : {
+        "size" : 15
+      }
+    },
     "legend" : {},
     "plot": {
         "valueBox": {
@@ -161,20 +183,7 @@
     },
     "series": []
   }
-  var pianoData = {
-    "type":"piano",
-    "title": {
-      "text":"User Data"
-    },
-    "scale-x" : {
-        "values" : ["Followers", "Friends", "Tweets", "Retweets"]
-    },
-    "legend" : {},
-    "chart" : {
-      "marginLeft" : "100px"
-    },
-    "series": []
-  }
+
 
   var barChart = new Chart(barData, 'barChart');
   var pieChart = new Chart(pieData, 'pieChart');
