@@ -9,6 +9,7 @@
     "mongoose": "~3.6.2",
     "morgan": "~1.2.2",
     "node-twitter-api": "^1.5.0",
+    "send": "^0.11.1",
     "twit": "^1.1.19",
     "twitter": "^1.2.1"
   }
