@@ -138,17 +138,16 @@
     "title": {
       "text":"Retweet Count"
     },
-    "legend" : {},
     "plot" : {
-       "slice" : 45,
-        "valueBox" : {
-            "type" : "all",
-            "placement":  "top"
-        },
+       "slice" : 45
+        // "valueBox" : {
+        //     "type" : "all",
+        //     "placement":  "top"
+        // },
     },
-    "plotarea" : {
-      "margin-top":  "35px"
-    },
+    // "plotarea" : {
+    //   "margin-top":  "35px"
+    // },
     "series": []
   }
 
