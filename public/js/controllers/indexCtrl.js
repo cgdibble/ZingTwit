@@ -110,7 +110,7 @@
   var barData = {
     "type":"bar",
     "title": {
-      "text":"Followers"
+      "text":"Number of Followers"
     },
     "scale-x" : {
       "values" : ["User(s)"]
@@ -128,7 +128,7 @@
   var pieData = {
     "type":"pie",
     "title": {
-      "text":"Friend Counts"
+      "text":"Number of Friends"
     },
     "series": []
   }
@@ -136,7 +136,7 @@
   var pieThreeD = {
     "type":"pie",
     "title": {
-      "text":"Retweet Count"
+      "text":"Number of Retweets"
     },
     "plot" : {
        "slice" : 45
@@ -154,7 +154,7 @@
   var gaugeData = {
     "type":"gauge",
     "title": {
-      "text":"Status Counts"
+      "text":"Number of Tweets"
     },
     "legend" : {},
     "plot": {
@@ -168,7 +168,7 @@
   var pianoData = {
     "type":"piano",
     "title": {
-      "text":"Follower Comparisons"
+      "text":"User Data"
     },
     "scale-x" : {
         "values" : ["Followers", "Friends", "Tweets", "Retweets"]
