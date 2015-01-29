@@ -5,18 +5,24 @@
   dash.controller('ChartController', ['$scope', '$http', function($scope, $http) {
     this.panel = 0;
 
+
     this.barChart = barChart;
     this.pieChart = pieChart;
     this.gaugeChart = gaugeChart;
     this.pianoChart = pianoChart;
     this.pieThreeDChart = pieThreeDChart;
 
-    this.charts = [this.barChart, this.pieChart, this.gaugeChart, this.pianoChart];
+    this.charts = [this.barChart, this.pieChart, this.gaugeChart, this.pianoChart, this.pieThreeDChart];
 
     this.twitterQueries = [];
     this.userQuery; //each user/search will be assigned to this string, have to break it up
 
+// THINGS TO FIX:::
 
+    // Top left of Donut chart has what looks like legend info clumped together
+    // Center graphs in Div
+    // chart Axis labels
+    // Before you search, the header has a grey background color(like the ".well" class)
 
     this.assignData = function(userData) {
         this.barChart.data.series.push({
@@ -50,13 +56,14 @@
         id: chart.divId,
         data: chart.data,
         height: 400,
-        width: "95%"
+        width: "97%"
       });
     },
 
     this.queryTwitter = function() {
       this.postDB(this.userQuery);
       this.userQuery = ""; //reset text field.
+
     },
 
     this.postDB = function(userQuery) {
@@ -66,7 +73,7 @@
         .success(function(data) {
           dashScope.twitterQueries.push(data)
           dashScope.assignData(data);
-
+          dashScope.panel === 0 ? dashScope.panel = 1 : dashScope.panel;
           console.log("Successful Query::DashController::postDb()");
         })
         .error(function(err) {
@@ -79,6 +86,7 @@
       for (var index = 0;index < this.charts.length; index++) {
         this.charts[index].data.series = [];
       }
+      this.panel = 0;
     },
 
     this.selectPanel = function(newPanel) {
@@ -102,7 +110,13 @@
   var barData = {
     "type":"bar",
     "title": {
-      "text":"Follower Counts"
+      "text":"Number of Followers"
+    },
+    "chart" : {
+      "marginLeft" : "50px"
+    },
+    "scale-x" : {
+      "values" : ["User(s)"]
     },
     "legend" : {},
     "plot": {
@@ -117,14 +131,7 @@
   var pieData = {
     "type":"pie",
     "title": {
-      "text":"Friend Counts"
-    },
-    "legend" : {},
-    "plot": {
-        "valueBox": {
-            "type": "all",
-            "placement": "top"
-        }
+      "text":"Number of Friends"
     },
     "series": []
   }
@@ -132,18 +139,10 @@
   var pieThreeD = {
     "type":"pie",
     "title": {
-      "text":"Retweet Count"
+      "text":"Number of Retweets"
     },
-    "legend" : {},
     "plot" : {
-       "slice" : 45,
-        "valueBox" : {
-            "type" : "all",
-            "placement":  "top"
-        },
-    },
-    "plotarea" : {
-      "margin-top":  "35px"
+       "slice" : 45
     },
     "series": []
   }
@@ -151,7 +150,7 @@
   var gaugeData = {
     "type":"gauge",
     "title": {
-      "text":"Status Counts"
+      "text":"Number of Tweets"
     },
     "legend" : {},
     "plot": {
@@ -165,14 +164,14 @@
   var pianoData = {
     "type":"piano",
     "title": {
-      "text":"Follower Comparisons"
+      "text":"User Data"
+    },
+    "scale-x" : {
+        "values" : ["Followers", "Friends", "Tweets", "Retweets"]
     },
     "legend" : {},
-    "plot": {
-        "valueBox": {
-            "type": "all",
-            "placement": "top"
-        }
+    "chart" : {
+      "marginLeft" : "100px"
     },
     "series": []
   }
