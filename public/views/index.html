@@ -10,58 +10,53 @@
   <body>
     <header>
     </header>
-    <div class="container">
-      <div class="title-box">
-        <a href="/" class="header container-fluid page-header navbar-brand col-sm-12">ZingTwit</a>
-      </div>
-      <div class="row text-center" ng-controller="ChartController as chartCtrl">
-        <div class="col-sm-12 well-lg well">
-            <br>
+    <div class="container" ng-controller="ChartController as chartCtrl">
+      <a href="/" class="header title-box container-fluid page-header navbar-brand col-sm-12">
+        ZingTwit
+      </a>
+      <section>
+        <ul class="nav nav-tabs nav-left">
+          <li ng-class="{active:chartCtrl.isSelected(1)}">
+            <a href ng-click="chartCtrl.selectPanel(1)">User Data (Piano) {{chartCtrl.tabDisabled}}</a>
+          </li>
+          <li ng-class="{active:chartCtrl.isSelected(2)}">
+            <a href ng-click="chartCtrl.selectPanel(2)">Followers (Bar)</a>
+          </li>
+          <li ng-class="{active:chartCtrl.isSelected(3)}">
+            <a href ng-click="chartCtrl.selectPanel(3)">Friends (Pie)</a>
+          </li>
+          <li ng-class="{active:chartCtrl.isSelected(4)}">
+            <a href ng-click="chartCtrl.selectPanel(4)">Tweets (Gauge)</a>
+          </li>
+          <li ng-class="{active:chartCtrl.isSelected(5)}">
+            <a href ng-click="chartCtrl.selectPanel(5)">Retweets (Donut)</a>
+          </li>
+          <li>
             <form name="queryForm" ng-submit="queryForm.$valid && chartCtrl.queryTwitter()" novalidate>
-            <input class="search-field" type="text" name="users" placeholder="Search a Twitter User" ng-model="chartCtrl.userQuery" required>
-            <br><br>
-            <input type="submit" class="btn btn-lg btn-primary" value="Search">
-            <br><br>
-            <input type = "submit" class="btn btn-default" value="Clear Charts" ng-click="chartCtrl.clearData()">
-          </form>
-        </div>
-        <section>
-          <ul class="nav nav-tabs">
-            <li ng-class="{active:chartCtrl.isSelected(1)}">
-              <a href ng-click="chartCtrl.selectPanel(1)">User Data (Piano)</a>
-            </li>
-            <li ng-class="{active:chartCtrl.isSelected(2)}">
-              <a href ng-click="chartCtrl.selectPanel(2)">Followers (Bar)</a>
-            </li>
-            <li ng-class="{active:chartCtrl.isSelected(3)}">
-              <a href ng-click="chartCtrl.selectPanel(3)">Friends (Pie)</a>
-            </li>
-            <li ng-class="{active:chartCtrl.isSelected(4)}">
-              <a href ng-click="chartCtrl.selectPanel(4)">Tweets (Gauge)</a>
-            </li>
-            <li ng-class="{active:chartCtrl.isSelected(5)}">
-              <a href ng-click="chartCtrl.selectPanel(5)">Retweets (Donut)</a>
-            </li>
-          </ul>
+              <input class="search-field" type="text" name="users" placeholder="Search a Twitter User" ng-model="chartCtrl.userQuery" required>
+              <input type="submit" class="btn btn-primary" value="Search">
+              <input type = "submit" class="btn btn-default" value="Clear Charts" ng-click="chartCtrl.clearData()" ng-show="chartCtrl.twitterQueries.length">
+            </form>
+          </li>
+        </ul>
 
-          <div class="well blank-panel" ng-show="chartCtrl.isSelected(0)"></div>
-          <div id="pianoChart" class="well center-chart™" ng-show="chartCtrl.isSelected(1)">
-            {{chartCtrl.renderChart(chartCtrl.pianoChart)}}
-          </div>
-          <div id="barChart" class="well" ng-show="chartCtrl.isSelected(2)">
-            {{chartCtrl.renderChart(chartCtrl.barChart)}}
-          </div>
-          <div id="pieChart" class="well" ng-show="chartCtrl.isSelected(3)">
-            {{chartCtrl.renderChart(chartCtrl.pieChart)}}
-          </div>
-          <div id="gaugeChart" class="well" ng-show="chartCtrl.isSelected(4)">
-            {{chartCtrl.renderChart(chartCtrl.gaugeChart)}}
-          </div>
-          <div id="pieThreeDChart" class="well" ng-show="chartCtrl.isSelected(5)">
-            {{chartCtrl.renderChart(chartCtrl.pieThreeDChart)}}
-          </div>
-        </section>
-      </div>
+        <div class="well blank-panel" ng-show="chartCtrl.isSelected(0)"></div>
+        <div id="pianoChart" class="well center-chart™" ng-show="chartCtrl.isSelected(1)">
+          {{chartCtrl.renderChart(chartCtrl.pianoChart)}}
+        </div>
+        <div id="barChart" class="well" ng-show="chartCtrl.isSelected(2)">
+          {{chartCtrl.renderChart(chartCtrl.barChart)}}
+        </div>
+        <div id="pieChart" class="well" ng-show="chartCtrl.isSelected(3)">
+          {{chartCtrl.renderChart(chartCtrl.pieChart)}}
+        </div>
+        <div id="gaugeChart" class="well" ng-show="chartCtrl.isSelected(4)">
+          {{chartCtrl.renderChart(chartCtrl.gaugeChart)}}
+        </div>
+        <div id="pieThreeDChart" class="well" ng-show="chartCtrl.isSelected(5)">
+          {{chartCtrl.renderChart(chartCtrl.pieThreeDChart)}}
+        </div>
+      </section>
     </div>
     <script type="text/javascript" src="../libs/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="../libs/bootstrap/dist/js/bootstrap.js"></script>

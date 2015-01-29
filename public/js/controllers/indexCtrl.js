@@ -5,6 +5,7 @@
   dash.controller('ChartController', ['$scope', '$http', function($scope, $http) {
     this.panel = 0;
 
+
     this.barChart = barChart;
     this.pieChart = pieChart;
     this.gaugeChart = gaugeChart;
@@ -62,6 +63,7 @@
     this.queryTwitter = function() {
       this.postDB(this.userQuery);
       this.userQuery = ""; //reset text field.
+
     },
 
     this.postDB = function(userQuery) {
@@ -71,7 +73,7 @@
         .success(function(data) {
           dashScope.twitterQueries.push(data)
           dashScope.assignData(data);
-
+          dashScope.panel === 0 ? dashScope.panel = 1 : dashScope.panel;
           console.log("Successful Query::DashController::postDb()");
         })
         .error(function(err) {
@@ -84,6 +86,7 @@
       for (var index = 0;index < this.charts.length; index++) {
         this.charts[index].data.series = [];
       }
+      this.panel = 0;
     },
 
     this.selectPanel = function(newPanel) {
@@ -107,7 +110,10 @@
   var barData = {
     "type":"bar",
     "title": {
-      "text":"Follower Counts"
+      "text":"Followers"
+    },
+    "scale-x" : {
+      "values" : ["User(s)"]
     },
     "legend" : {},
     "plot": {
@@ -171,6 +177,9 @@
     "type":"piano",
     "title": {
       "text":"Follower Comparisons"
+    },
+    "scale-x" : {
+        "values" : ["Followers", "Friends", "Tweets", "Retweets"]
     },
     "legend" : {},
     "plot": {
