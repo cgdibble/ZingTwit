@@ -82,6 +82,7 @@
       for (var index = 0;index < this.charts.length; index++) {
         this.charts[index].data.series = [];
       }
+      twitterQueries = []
       this.panel = 0;
     },
 
