@@ -12,7 +12,7 @@
     this.pianoChart = pianoChart;
     this.pieThreeDChart = pieThreeDChart;
 
-    this.charts = [this.barChart, this.pieChart, this.gaugeChart, this.pianoChart];
+    this.charts = [this.barChart, this.pieChart, this.gaugeChart, this.pianoChart, this.pieThreeDChart];
 
     this.twitterQueries = [];
     this.userQuery; //each user/search will be assigned to this string, have to break it up
