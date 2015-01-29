@@ -130,13 +130,6 @@
     "title": {
       "text":"Friend Counts"
     },
-    "legend" : {},
-    "plot": {
-        "valueBox": {
-            "type": "all",
-            "placement": "top"
-        }
-    },
     "series": []
   }
 
