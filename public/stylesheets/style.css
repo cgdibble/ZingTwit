@@ -16,6 +16,8 @@ html, body {
 /*    CONTENT    */
 .search-field {
   width: 250px;
+  height: 35px;
+  border-radius: 5px;
 }
 
 .blank-panel {
