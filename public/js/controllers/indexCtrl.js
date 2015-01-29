@@ -112,6 +112,9 @@
     "title": {
       "text":"Number of Followers"
     },
+    "chart" : {
+      "marginLeft" : "50px"
+    },
     "scale-x" : {
       "values" : ["User(s)"]
     },
@@ -140,14 +143,7 @@
     },
     "plot" : {
        "slice" : 45
-        // "valueBox" : {
-        //     "type" : "all",
-        //     "placement":  "top"
-        // },
     },
-    // "plotarea" : {
-    //   "margin-top":  "35px"
-    // },
     "series": []
   }
 
@@ -174,11 +170,8 @@
         "values" : ["Followers", "Friends", "Tweets", "Retweets"]
     },
     "legend" : {},
-    "plot": {
-        "valueBox": {
-            "type": "all",
-            "placement": "top"
-        }
+    "chart" : {
+      "marginLeft" : "100px"
     },
     "series": []
   }
