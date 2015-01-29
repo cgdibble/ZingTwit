@@ -16,7 +16,12 @@
     this.twitterQueries = [];
     this.userQuery; //each user/search will be assigned to this string, have to break it up
 
+// THINGS TO FIX:::
 
+    // Top left of Donut chart has what looks like legend info clumped together
+    // Center graphs in Div
+    // chart Axis labels
+    // Before you search, the header has a grey background color(like the ".well" class)
 
     this.assignData = function(userData) {
         this.barChart.data.series.push({
@@ -50,7 +55,7 @@
         id: chart.divId,
         data: chart.data,
         height: 400,
-        width: "95%"
+        width: "80%"
       });
     },
 
