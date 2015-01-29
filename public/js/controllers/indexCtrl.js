@@ -15,16 +15,13 @@
     this.charts = [this.barChart, this.pieChart, this.gaugeChart, this.pianoChart, this.pieThreeDChart];
 
     this.twitterQueries = [];
-    this.userQuery; //each user/search will be assigned to this string, have to break it up
-
-// THINGS TO FIX:::
-    // chart Axis labels
+    this.userQuery;
 
     this.assignData = function(userData) {
         this.barChart.data.series.push({
           "text" : "@" + userData.screen_name,
           "values" : [userData.followers_count]
-         });   // barChart ====== Followers
+         });
 
         this.pianoChart.data.series.push({
           "text" : "@" + userData.screen_name,
