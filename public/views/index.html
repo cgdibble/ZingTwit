@@ -21,7 +21,7 @@
           <span class="icon-bar"></span>
         </button>
 
-        <ul class="nav nav-tabs navbar-nav nav-right collapse navbar-collapse">
+        <ul class="nav nav-tabs navbar-nav navbar-right collapse navbar-collapse">
           <li ng-class="{active:chartCtrl.isSelected(1)}">
             <a href ng-click="chartCtrl.selectPanel(1)">User Data (Piano) {{chartCtrl.tabDisabled}}</a>
           </li>
@@ -37,14 +37,11 @@
           <li ng-class="{active:chartCtrl.isSelected(5)}">
             <a href ng-click="chartCtrl.selectPanel(5)">Retweets (Donut)</a>
           </li>
-          <li>
-
-          </li>
         </ul>
 
       </div>
       <div class="container">
-        <form name="queryForm" ng-submit="queryForm.$valid && chartCtrl.queryTwitter()" novalidate>
+        <form name="queryForm" class="text-center" ng-submit="queryForm.$valid && chartCtrl.queryTwitter()" novalidate>
           <input class="search-field" type="text" name="users" placeholder="Search a Twitter User" ng-model="chartCtrl.userQuery" required>
           <input type="submit" class="btn btn-primary" value="Search">
           <input type = "submit" class="btn btn-default" value="Clear Charts" ng-click="chartCtrl.clearData()" ng-show="chartCtrl.twitterQueries.length">
@@ -57,7 +54,7 @@
           <!-- <br><br> -->
           <!-- <p>Search Twitter users and check out the different charts to compare the user data!</p> -->
         </div>
-        <div id="pianoChart" class="well center-chart" ng-show="chartCtrl.isSelected(1)">
+        <div id="pianoChart" class="well" ng-show="chartCtrl.isSelected(1)">
           {{chartCtrl.renderChart(chartCtrl.pianoChart)}}
         </div>
         <div id="barChart" class="well" ng-show="chartCtrl.isSelected(2)">
